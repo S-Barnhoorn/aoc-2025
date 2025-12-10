@@ -40,8 +40,6 @@ console.log(output);
 
 //partTwo
 
-console.log(input);
-
 function repeatedNumbers(number) {
     const stringNumber = number.toString();
     const digits = stringNumber.length;
@@ -52,8 +50,6 @@ function repeatedNumbers(number) {
         const segment = stringNumber.slice(0, i);
         const repeated = digits / i;
 
-        console.log(stringNumber, segment, repeated)
-
         if (segment.repeat(repeated) === stringNumber) {
             return true;
         }
@@ -62,8 +58,6 @@ function repeatedNumbers(number) {
 }
 
 const secondArray = input.map(array => array.filter(split => repeatedNumbers(split)))
-
-console.log(secondArray);
 
 let outputTwo = 0;
 secondArray.map((numbers) => {
