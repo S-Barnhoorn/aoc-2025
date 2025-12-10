@@ -12,10 +12,10 @@ const input = text.split(',').map(entry => {
     return numbers;
 });
 
-function splitInHalf(number){
+function splitInHalf(number) {
     const stringNumber = number.toString();
 
-    if (stringNumber.length % 2 !== 0){
+    if (stringNumber.length % 2 !== 0) {
         return false
     }
     const halved = stringNumber.length / 2;
@@ -33,20 +33,19 @@ let output = 0;
 fullArray.map((numbers) => {
     for (let i = 0; i < numbers.length; i++) {
         output = output + numbers[i]
-    }});
+    }
+});
 
 console.log(output);
 
 //partTwo
 
-console.log(input);
-
-function repeatedNumbers(number){
+function repeatedNumbers(number) {
     const stringNumber = number.toString();
     const digits = stringNumber.length;
 
-    for (let i = 1; i <= Math.floor(digits/2) ; i++) {
-        if(digits % i !== 0) continue;
+    for (let i = 1; i <= Math.floor(digits / 2); i++) {
+        if (digits % i !== 0) continue;
 
         const segment = stringNumber.slice(0, i);
         const repeated = digits / i;
@@ -60,13 +59,12 @@ function repeatedNumbers(number){
 
 const secondArray = input.map(array => array.filter(split => repeatedNumbers(split)))
 
-console.log(secondArray);
-
 let outputTwo = 0;
 secondArray.map((numbers) => {
     for (let i = 0; i < numbers.length; i++) {
         outputTwo = outputTwo + numbers[i]
-    }});
+    }
+});
 
 console.log(outputTwo);
 
