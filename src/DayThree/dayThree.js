@@ -36,3 +36,35 @@ results.map((number) => {
 console.log(output);
 
 //partTwo
+
+function largestNumber(battery){
+    const digits = battery.split("");
+    let removeNumbers= digits.length - 12;
+
+    const result = digits.reduce((stack, number) => {
+        while (
+            removeNumbers > 0 &&
+            stack.length > 0 &&
+            stack[stack.length - 1] < number
+        ) {
+            stack.pop();
+            removeNumbers--;
+        }
+        stack.push(number);
+        return stack;
+    }, []);
+
+    return result.slice(0, 12).join("");
+}
+
+const resultsTwo = input.map((batteries) => {
+    return largestNumber(batteries)
+})
+
+const numbersArray = resultsTwo.map(Number);
+
+let outputTwo = 0;
+numbersArray.map((number) => {
+    outputTwo = outputTwo + number
+});
+console.log(outputTwo);
