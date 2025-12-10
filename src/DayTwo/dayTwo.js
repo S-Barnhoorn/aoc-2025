@@ -39,3 +39,35 @@ console.log(output);
 
 //partTwo
 
+console.log(input);
+
+function repeatedNumbers(number){
+    const stringNumber = number.toString();
+    const digits = stringNumber.length;
+
+    for (let i = 1; i <= Math.floor(digits/2) ; i++) {
+        if(digits % i !== 0) continue;
+
+        const segment = stringNumber.slice(0, i);
+        const repeated = digits / i;
+
+        if (segment.repeat(repeated) === stringNumber) {
+            return true;
+        }
+    }
+    return false;
+}
+
+const secondArray = input.map(array => array.filter(split => repeatedNumbers(split)))
+
+console.log(secondArray);
+
+let outputTwo = 0;
+secondArray.map((numbers) => {
+    for (let i = 0; i < numbers.length; i++) {
+        outputTwo = outputTwo + numbers[i]
+    }});
+
+console.log(outputTwo);
+
+
